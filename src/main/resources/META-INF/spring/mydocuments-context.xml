@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <bean id="engine" class="com.apress.isf.java.service.SearchEngineService">
+            <property name="documentDAO" ref="documentDAO" />
+        </bean>
+
+        <bean id="documentDAO" class="com.apress.isf.spring.data.DocumentRepository">
+            <property name="doc1" ref="doc1" />
+            <property name="doc2" ref="doc2" />
+            <property name="doc3" ref="doc3" />
+            <property name="doc4" ref="doc4" />
+        </bean>
+
+        <bean id="doc1" class="com.apress.isf.java.model.Document">
+            <property name="name" value="Book Template"></property>
+            <property name="type" ref="pdfType"></property>
+            <property name="location" value="/Users/felipeg/Documents/Random/Book Template"></property>
+        </bean>
+        <bean id="doc2" class="com.apress.isf.java.model.Document">
+            <property name="name" value="Sample Contract"></property>
+            <property name="type" ref="pdfType"></property>
+            <property name="location" value="/Users/felipeg/Documents/Random/Sample Contract"></property>
+        </bean>
+        <bean id="doc3" class="com.apress.isf.java.model.Document">
+            <property name="name" value="Clustering with RabbitMQ"></property>
+            <property name="type" ref="noteType"></property>
+            <property name="location" value=""></property>
+        </bean>
+        <bean id="doc4" class="com.apress.isf.java.model.Document">
+            <property name="name" value="sports media"></property>
+            <property name="type" ref="webType"></property>
+            <property name="location" value="http://sports.media.daum.net"></property>
+        </bean>
+
+        <bean id="pdfType" class="com.apress.isf.java.model.Type">
+            <property name="name" value="PDF"></property>
+            <property name="extension" value=".pdf"></property>
+            <property name="desc" value="Portable Document Format"></property>
+        </bean>
+
+        <bean id="webType" class="com.apress.isf.java.model.Type">
+            <property name="name" value="WEB"></property>
+            <property name="extension" value=".url"></property>
+            <property name="desc" value="Web Link"></property>
+        </bean>
+
+        <bean id="noteType" class="com.apress.isf.java.model.Type">
+            <property name="name" value="NOTE"></property>
+            <property name="extension" value=".txt"></property>
+            <property name="desc" value="Text Notes"></property>
+        </bean>
+
+</beans>
